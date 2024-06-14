@@ -133,35 +133,60 @@
             return;
         }
 
-        // Determine Hogwarts house based on answers
-        var house;
-        if (answer1.value === 'lion' && answer2.value === 'transfiguration' && answer3.value === 'courage') {
-            house = 'Gryffindor';
-        } else if (answer1.value === 'eagle' && answer2.value === 'charms' && answer3.value === 'wisdom') {
-            house = 'Ravenclaw';
-        } else if (answer1.value === 'badger' && answer2.value === 'herbology' && answer3.value === 'loyalty') {
-            house = 'Hufflepuff';
-        } else if (answer1.value === 'snake' && answer2.value === 'potions' && answer3.value === 'ambition') {
-            house = 'Slytherin';
-        } else if (answer1.value === 'lion' && answer2.value === 'charms' && answer3.value === 'loyalty') {
-            house = 'Gryffindor';
-        } else if (answer1.value === 'eagle' && answer2.value === 'transfiguration' && answer3.value === 'wisdom') {
-            house = 'Ravenclaw';
-        } else if (answer1.value === 'badger' && answer2.value === 'potions' && answer3.value === 'loyalty') {
-            house = 'Hufflepuff';
-        } else if (answer1.value === 'snake' && answer2.value === 'herbology' && answer3.value === 'ambition') {
-            house = 'Slytherin';
-        } else if (answer1.value === 'lion' && answer2.value === 'charms' && answer3.value === 'ambition') {
-            house = 'Gryffindor';
-        } else if (answer1.value === 'eagle' && answer2.value === 'herbology' && answer3.value === 'wisdom') {
-            house = 'Ravenclaw';
-        } else if (answer1.value === 'badger' && answer2.value === 'transfiguration' && answer3.value === 'loyalty') {
-            house = 'Hufflepuff';
-        } else if (answer1.value === 'snake' && answer2.value === 'potions' && answer3.value === 'courage') {
-            house = 'Slytherin';
-        } else {
-            house = 'Muggle... Nah, just kidding!';
-        }
+       // Determine Hogwarts house based on answers
+var house;
+if (answer1.value === 'lion' && answer2.value === 'transfiguration' && answer3.value === 'courage') {
+    house = 'Gryffindor';
+} else if (answer1.value === 'eagle' && answer2.value === 'charms' && answer3.value === 'wisdom') {
+    house = 'Ravenclaw';
+} else if (answer1.value === 'badger' && answer2.value === 'herbology' && answer3.value === 'loyalty') {
+    house = 'Hufflepuff';
+} else if (answer1.value === 'snake' && answer2.value === 'potions' && answer3.value === 'ambition') {
+    house = 'Slytherin';
+} else if (answer1.value === 'lion' && answer2.value === 'charms' && answer3.value === 'loyalty') {
+    house = 'Gryffindor';
+} else if (answer1.value === 'eagle' && answer2.value === 'transfiguration' && answer3.value === 'wisdom') {
+    house = 'Ravenclaw';
+} else if (answer1.value === 'badger' && answer2.value === 'potions' && answer3.value === 'loyalty') {
+    house = 'Hufflepuff';
+} else if (answer1.value === 'snake' && answer2.value === 'herbology' && answer3.value === 'ambition') {
+    house = 'Slytherin';
+} else if (answer1.value === 'lion' && answer2.value === 'charms' && answer3.value === 'ambition') {
+    house = 'Gryffindor';
+} else if (answer1.value === 'eagle' && answer2.value === 'herbology' && answer3.value === 'wisdom') {
+    house = 'Ravenclaw';
+} else if (answer1.value === 'badger' && answer2.value === 'transfiguration' && answer3.value === 'loyalty') {
+    house = 'Hufflepuff';
+} else if (answer1.value === 'snake' && answer2.value === 'potions' && answer3.value === 'courage') {
+    house = 'Slytherin';
+} else if (answer4.value === 'pikachu' && answer5.value === 'friday' && answer6.value === 'forties') {
+    house = 'Gryffindor';
+} else if (answer4.value === 'charizard' && answer5.value === 'sunday' && answer6.value === '92') {
+    house = 'Ravenclaw';
+} else if (answer4.value === 'bulbasaur' && answer5.value === 'tuesday' && answer6.value === 'one-esterra') {
+    house = 'Hufflepuff';
+} else if (answer4.value === 'eevee' && answer5.value === 'thursday' && answer6.value === 'red-west') {
+    house = 'Slytherin';
+} else if (answer4.value === 'pikachu' && answer5.value === 'friday' && answer6.value === 'one-esterra') {
+    house = 'Gryffindor';
+} else if (answer4.value === 'charizard' && answer5.value === 'sunday' && answer6.value === 'red-west') {
+    house = 'Ravenclaw';
+} else if (answer4.value === 'bulbasaur' && answer5.value === 'tuesday' && answer6.value === '92') {
+    house = 'Hufflepuff';
+} else if (answer4.value === 'eevee' && answer5.value === 'thursday' && answer6.value === 'forties') {
+    house = 'Slytherin';
+} else if (answer4.value === 'pikachu' && answer5.value === 'friday' && answer6.value === 'red-west') {
+    house = 'Gryffindor';
+} else if (answer4.value === 'charizard' && answer5.value === 'sunday' && answer6.value === 'forties') {
+    house = 'Ravenclaw';
+} else if (answer4.value === 'bulbasaur' && answer5.value === 'tuesday' && answer6.value === '92') {
+    house = 'Hufflepuff';
+} else if (answer4.value === 'eevee' && answer5.value === 'thursday' && answer6.value === 'one-esterra') {
+    house = 'Slytherin';
+} else {
+    house = 'Muggle... Nah, just kidding!';
+}
+
 
 
             // Display result
