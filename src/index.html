@@ -51,7 +51,13 @@
             var answer3 = document.querySelector('input[name="question3"]:checked');
 
             if (!answer1 || !answer2 || !answer3) {
-                alert("Please answer all questions.");
+                var messages = [
+                    "You forgot to answer a question! Don't leave Dumbledore hanging!",
+                    "Hagrid's waiting for your answers, make sure you answer every question!",
+                    "Oh no! Snape won't let you skip questions. Please answer all of them!"
+                ];
+                var randomMessage = messages[Math.floor(Math.random() * messages.length)];
+                alert(randomMessage);
                 return;
             }
 
@@ -66,7 +72,7 @@
             } else if (answer1.value === 'snake' && answer2.value === 'potions' && answer3.value === 'ambition') {
                 house = 'Slytherin';
             } else {
-                house = 'Muggle... Nah, just kidding! Please answer all questions.';
+                house = 'Tough luck, no house';
             }
 
             // Display result
