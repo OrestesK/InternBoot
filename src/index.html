@@ -45,20 +45,25 @@
 
     <script>
         function sortUser() {
-            // Get user's answers
-            var answer1 = document.querySelector('input[name="question1"]:checked').value;
-            var answer2 = document.querySelector('input[name="question2"]:checked').value;
-            var answer3 = document.querySelector('input[name="question3"]:checked').value;
+            // Check if all questions are answered
+            var answer1 = document.querySelector('input[name="question1"]:checked');
+            var answer2 = document.querySelector('input[name="question2"]:checked');
+            var answer3 = document.querySelector('input[name="question3"]:checked');
+
+            if (!answer1 || !answer2 || !answer3) {
+                alert("Please answer all questions.");
+                return;
+            }
 
             // Determine Hogwarts house based on answers
             var house;
-            if (answer1 === 'lion' && answer2 === 'transfiguration' && answer3 === 'courage') {
+            if (answer1.value === 'lion' && answer2.value === 'transfiguration' && answer3.value === 'courage') {
                 house = 'Gryffindor';
-            } else if (answer1 === 'eagle' && answer2 === 'charms' && answer3 === 'wisdom') {
+            } else if (answer1.value === 'eagle' && answer2.value === 'charms' && answer3.value === 'wisdom') {
                 house = 'Ravenclaw';
-            } else if (answer1 === 'badger' && answer2 === 'herbology' && answer3 === 'loyalty') {
+            } else if (answer1.value === 'badger' && answer2.value === 'herbology' && answer3.value === 'loyalty') {
                 house = 'Hufflepuff';
-            } else if (answer1 === 'snake' && answer2 === 'potions' && answer3 === 'ambition') {
+            } else if (answer1.value === 'snake' && answer2.value === 'potions' && answer3.value === 'ambition') {
                 house = 'Slytherin';
             } else {
                 house = 'Muggle... Nah, just kidding! Please answer all questions.';
@@ -66,7 +71,7 @@
 
             // Display result
             document.getElementById('result').style.display = 'block';
-            document.getElementById('house').innerHTML = house;
+            document.getElementById('house').textContent = house;
         }
     </script>
 </body>
