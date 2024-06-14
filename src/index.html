@@ -1,65 +1,73 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Hogwarts House Quiz</title><style>body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }        .quiz-container {
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }        .question {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }        .answer {
-            display: block;
-            margin-bottom: 10px;
-        }        #submit-button {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-        #result {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-top: 20px;
-        }
-    </style></head><body><div class="quiz-container"><h1>Which Hogwarts House Are You?</h1><div class="question"><p>Question 1: What quality do you value most?</p><label class="answer"><input type="radio" name="q1" value="gryffindor"> Courage
-            </label><label class="answer"><input type="radio" name="q1" value="hufflepuff"> Loyalty
-            </label><label class="answer"><input type="radio" name="q1" value="ravenclaw"> Intelligence
-            </label><label class="answer"><input type="radio" name="q1" value="slytherin"> Ambition
-            </label></div><div class="question"><p>Question 2: Which animal do you prefer?</p><label class="answer"><input type="radio" name="q2" value="gryffindor"> Lion
-            </label><label class="answer"><input type="radio" name="q2" value="hufflepuff"> Badger
-            </label><label class="answer"><input type="radio" name="q2" value="ravenclaw"> Eagle
-            </label><label class="answer"><input type="radio" name="q2" value="slytherin"> Snake
-            </label></div><div class="question"><p>Question 3: Which element resonates with you?</p><label class="answer"><input type="radio" name="q3" value="gryffindor"> Fire
-            </label><label class="answer"><input type="radio" name="q3" value="hufflepuff"> Earth
-            </label><label class="answer"><input type="radio" name="q3" value="ravenclaw"> Air
-            </label><label class="answer"><input type="radio" name="q3" value="slytherin"> Water
-            </label></div><button id="submit-button">Submit!</button><div id="result"></div></div><script>const submitButton = document.getElementById('submit-button');
-        const resultElement = document.getElementById('result');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harry Potter Sorting Quiz</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 20px;
+    }
+</style>
+</head>
+<body>
+    <h1>Harry Potter Sorting Quiz</h1>
+    <p>Answer the following questions to determine your Hogwarts house:</p>
 
-        submitButton.addEventListener('click', () => {
-            const answers = document.querySelectorAll('input[type="radio"]:checked');
-            if (answers.length !== 3) {
-                resultElement.textContent = 'Please answer all questions.';
-                return;
+    <div id="questions">
+        <p>1. Which animal would you bring to Hogwarts as a pet?</p>
+        <input type="radio" name="question1" value="lion"> Lion<br>
+        <input type="radio" name="question1" value="eagle"> Eagle<br>
+        <input type="radio" name="question1" value="badger"> Badger<br>
+        <input type="radio" name="question1" value="snake"> Snake<br><br>
+
+        <p>2. Which subject at Hogwarts interests you the most?</p>
+        <input type="radio" name="question2" value="transfiguration"> Transfiguration<br>
+        <input type="radio" name="question2" value="charms"> Charms<br>
+        <input type="radio" name="question2" value="herbology"> Herbology<br>
+        <input type="radio" name="question2" value="potions"> Potions<br><br>
+
+        <p>3. What quality do you value the most?</p>
+        <input type="radio" name="question3" value="courage"> Courage<br>
+        <input type="radio" name="question3" value="wisdom"> Wisdom<br>
+        <input type="radio" name="question3" value="loyalty"> Loyalty<br>
+        <input type="radio" name="question3" value="ambition"> Ambition<br><br>
+
+        <button onclick="sortUser()">Sort Me!</button>
+    </div>
+
+    <div id="result" style="display:none;">
+        <h2>Your Hogwarts House:</h2>
+        <p id="house"></p>
+    </div>
+
+    <script>
+        function sortUser() {
+            // Get user's answers
+            var answer1 = document.querySelector('input[name="question1"]:checked').value;
+            var answer2 = document.querySelector('input[name="question2"]:checked').value;
+            var answer3 = document.querySelector('input[name="question3"]:checked').value;
+
+            // Determine Hogwarts house based on answers
+            var house;
+            if (answer1 === 'lion' && answer2 === 'transfiguration' && answer3 === 'courage') {
+                house = 'Gryffindor';
+            } else if (answer1 === 'eagle' && answer2 === 'charms' && answer3 === 'wisdom') {
+                house = 'Ravenclaw';
+            } else if (answer1 === 'badger' && answer2 === 'herbology' && answer3 === 'loyalty') {
+                house = 'Hufflepuff';
+            } else if (answer1 === 'snake' && answer2 === 'potions' && answer3 === 'ambition') {
+                house = 'Slytherin';
+            } else {
+                house = 'Muggle... Nah, just kidding! Please answer all questions.';
             }
 
-            const houseVotes = {
-                gryffindor: 0,
-                hufflepuff: 0,
-                ravenclaw: 0,
-                slytherin: 0,
-            };
-
-            answers.forEach(answer => {
-                houseVotes[answer.value]++;
-            });
-
-            const maxVotes = Math.max(...Object.values(houseVotes));
-            const winningHouse = Object.keys(houseVotes).find(house => houseVotes[house] === maxVotes);
-
-            resultElement.textContent = `Congratulations! You belong to ${winningHouse.charAt(0).toUpperCase() + winningHouse
+            // Display result
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('house').innerHTML = house;
+        }
+    </script>
+</body>
+</html>
