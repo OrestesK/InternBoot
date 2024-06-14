@@ -65,23 +65,41 @@
     <p>Answer the following questions to determine your Hogwarts house:</p>
 
     <div id="questions">
-        <p>1. Which animal would you bring to Hogwarts as a pet?</p>
-        <input type="radio" name="question1" value="lion"> Lion<br>
-        <input type="radio" name="question1" value="eagle"> Eagle<br>
-        <input type="radio" name="question1" value="badger"> Badger<br>
-        <input type="radio" name="question1" value="snake"> Snake<br><br>
+    <p>1. Which animal would you bring to Hogwarts as a pet?</p>
+    <input type="radio" name="question1" value="lion"> Lion<br>
+    <input type="radio" name="question1" value="eagle"> Eagle<br>
+    <input type="radio" name="question1" value="badger"> Badger<br>
+    <input type="radio" name="question1" value="snake"> Snake<br><br>
 
-        <p>2. Which subject at Hogwarts interests you the most?</p>
-        <input type="radio" name="question2" value="transfiguration"> Transfiguration<br>
-        <input type="radio" name="question2" value="charms"> Charms<br>
-        <input type="radio" name="question2" value="herbology"> Herbology<br>
-        <input type="radio" name="question2" value="potions"> Potions<br><br>
+    <p>2. Which subject at Hogwarts interests you the most?</p>
+    <input type="radio" name="question2" value="transfiguration"> Transfiguration<br>
+    <input type="radio" name="question2" value="charms"> Charms<br>
+    <input type="radio" name="question2" value="herbology"> Herbology<br>
+    <input type="radio" name="question2" value="potions"> Potions<br><br>
 
-        <p>3. What quality do you value the most?</p>
-        <input type="radio" name="question3" value="courage"> Courage<br>
-        <input type="radio" name="question3" value="wisdom"> Wisdom<br>
-        <input type="radio" name="question3" value="loyalty"> Loyalty<br>
-        <input type="radio" name="question3" value="ambition"> Ambition<br><br>
+    <p>3. What quality do you value the most?</p>
+    <input type="radio" name="question3" value="courage"> Courage<br>
+    <input type="radio" name="question3" value="wisdom"> Wisdom<br>
+    <input type="radio" name="question3" value="loyalty"> Loyalty<br>
+    <input type="radio" name="question3" value="ambition"> Ambition<br><br>
+
+    <p>4. What's your favorite Pokémon?</p>
+    <input type="radio" name="question4" value="pikachu"> Pikachu<br>
+    <input type="radio" name="question4" value="charizard"> Charizard<br>
+    <input type="radio" name="question4" value="bulbasaur"> Bulbasaur<br>
+    <input type="radio" name="question4" value="eevee"> Eevee<br><br>
+
+    <p>5. What's your favorite day of the week?</p>
+    <input type="radio" name="question5" value="friday"> Friday<br>
+    <input type="radio" name="question5" value="sunday"> Sunday<br>
+    <input type="radio" name="question5" value="tuesday"> Tuesday<br>
+    <input type="radio" name="question5" value="thursday"> Thursday<br><br>
+
+    <p>6. What's your favorite building in Microsoft?</p>
+    <input type="radio" name="question6" value="forties"> Forties (YEAH!!!)<br>
+    <input type="radio" name="question6" value="92"> 92<br>
+    <input type="radio" name="question6" value="one-esterra"> One Esterra<br>
+    <input type="radio" name="question6" value="red-west"> Red West<br><br>
 
         <button onclick="sortUser()">Sort Me!</button>
     </div>
@@ -93,35 +111,50 @@
 
     <script>
         function sortUser() {
-            // Check if all questions are answered
-            var answer1 = document.querySelector('input[name="question1"]:checked');
-            var answer2 = document.querySelector('input[name="question2"]:checked');
-            var answer3 = document.querySelector('input[name="question3"]:checked');
+        // Get user's answers
+        var answer1 = document.querySelector('input[name="question1"]:checked');
+        var answer2 = document.querySelector('input[name="question2"]:checked');
+        var answer3 = document.querySelector('input[name="question3"]:checked');
+        var answer4 = document.querySelector('input[name="question4"]:checked');
+        var answer5 = document.querySelector('input[name="question5"]:checked');
+        var answer6 = document.querySelector('input[name="question6"]:checked');
 
-            if (!answer1 || !answer2 || !answer3) {
-                var messages = [
-                    "You forgot to answer a question! Don't leave Dumbledore hanging!",
-                    "Hagrid's waiting for your answers, make sure you answer every question!",
-                    "Oh no! Snape won't let you skip questions. Please answer all of them!"
-                ];
-                var randomMessage = messages[Math.floor(Math.random() * messages.length)];
-                alert(randomMessage);
-                return;
-            }
+        // Check if all questions are answered
+        if (!answer1 || !answer2 || !answer3 || !answer4 || !answer5 || !answer6) {
+            alert("Please answer all questions.");
+            return;
+        }
 
-            // Determine Hogwarts house based on answers
-            var house;
-            if (answer1.value === 'lion' && answer2.value === 'transfiguration' && answer3.value === 'courage') {
-                house = 'Gryffindor';
-            } else if (answer1.value === 'eagle' && answer2.value === 'charms' && answer3.value === 'wisdom') {
-                house = 'Ravenclaw';
-            } else if (answer1.value === 'badger' && answer2.value === 'herbology' && answer3.value === 'loyalty') {
-                house = 'Hufflepuff';
-            } else if (answer1.value === 'snake' && answer2.value === 'potions' && answer3.value === 'ambition') {
-                house = 'Slytherin';
-            } else {
-                house = 'Tough luck, no house';
-            }
+        // Determine Hogwarts house based on answers
+        var house;
+        if (answer1.value === 'lion' && answer2.value === 'transfiguration' && answer3.value === 'courage') {
+            house = 'Gryffindor';
+        } else if (answer1.value === 'eagle' && answer2.value === 'charms' && answer3.value === 'wisdom') {
+            house = 'Ravenclaw';
+        } else if (answer1.value === 'badger' && answer2.value === 'herbology' && answer3.value === 'loyalty') {
+            house = 'Hufflepuff';
+        } else if (answer1.value === 'snake' && answer2.value === 'potions' && answer3.value === 'ambition') {
+            house = 'Slytherin';
+        } else if (answer1.value === 'lion' && answer2.value === 'charms' && answer3.value === 'loyalty') {
+            house = 'Gryffindor';
+        } else if (answer1.value === 'eagle' && answer2.value === 'transfiguration' && answer3.value === 'wisdom') {
+            house = 'Ravenclaw';
+        } else if (answer1.value === 'badger' && answer2.value === 'potions' && answer3.value === 'loyalty') {
+            house = 'Hufflepuff';
+        } else if (answer1.value === 'snake' && answer2.value === 'herbology' && answer3.value === 'ambition') {
+            house = 'Slytherin';
+        } else if (answer1.value === 'lion' && answer2.value === 'charms' && answer3.value === 'ambition') {
+            house = 'Gryffindor';
+        } else if (answer1.value === 'eagle' && answer2.value === 'herbology' && answer3.value === 'wisdom') {
+            house = 'Ravenclaw';
+        } else if (answer1.value === 'badger' && answer2.value === 'transfiguration' && answer3.value === 'loyalty') {
+            house = 'Hufflepuff';
+        } else if (answer1.value === 'snake' && answer2.value === 'potions' && answer3.value === 'courage') {
+            house = 'Slytherin';
+        } else {
+            house = 'Muggle... Nah, just kidding!';
+        }
+
 
             // Display result
             document.getElementById('result').style.display = 'block';
